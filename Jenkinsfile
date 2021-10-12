@@ -35,7 +35,7 @@ pipeline{
                 ]{
                         sh "${USER}, ${PWD}"
                 }
-                echo "deploying with ${SERVER_CREDENTIALS}"
+                echo "deploying with ${USER}, ${PWD}"
             }
         }
     }
