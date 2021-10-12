@@ -8,6 +8,7 @@ pipeline{
 
     parameters{
         booleanParam(name: 'executeTests', defaultValue: true, description:'this is a test')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'VERSIONS available')
     }
 
     stages{
@@ -34,12 +35,6 @@ pipeline{
 
             steps{
                 echo "deploying the application.."
-                withCredentials([
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
-                ]){
-                        //sh "echo '${USER}'"
-                }
-                echo "deploying with ${USER}, ${PWD}"
             }
         }
     }
