@@ -37,7 +37,7 @@ pipeline{
                 withCredentials([
                     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PWD)
                 ]){
-                        sh "${USER}, ${PWD}"
+                        sh "echo ${USER}"
                 }
                 echo "deploying with ${USER}, ${PWD}"
             }
