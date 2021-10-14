@@ -5,7 +5,7 @@ def buildApp(){
 
 def loginPushApp(){
     echo 'loging into docker hub....'
-    sh "docker login -u ${USER} -p ${PWD}"
+    sh "docker login -u ${env.USER} -p ${env.PWD}"
     echo 'pushing image to docker hub...'
     sh 'docker push dockerrochatest/app-test:latest'
 }
