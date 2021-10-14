@@ -6,7 +6,7 @@ pipeline{
 
     environment{
         NEW_VERSION = '1.3.0'
-        DOCKERHUB_CREDENTIALS=credentials('5dd8c779-c568-44b4-8d49-38e9298e32e6')
+        //DOCKERHUB_CREDENTIALS=credentials('docker-rocha-hub')
     }
 
     parameters{
@@ -34,8 +34,12 @@ pipeline{
 
         stage("Login/PushImage"){
             steps{
-                script{
-                    gv.loginPushApp()
+                withCredentials([
+                    usernamePassword(credentials: 'docker-rocha-hub', usernameVariable: USER, passwordVariable: PWD)
+                ]){
+                    script{
+                        gv.loginPushApp()
+                    }
                 }
             }
         }
