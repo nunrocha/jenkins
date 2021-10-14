@@ -6,7 +6,7 @@ pipeline{
 
     environment{
         NEW_VERSION = '1.3.0'
-        DOCERHUB_CREDENTIALS=credentials('5dd8c779-c568-44b4-8d49-38e9298e32e6')
+        DOCKERHUB_CREDENTIALS_PSW=credentials('5dd8c779-c568-44b4-8d49-38e9298e32e6')
     }
 
     parameters{
