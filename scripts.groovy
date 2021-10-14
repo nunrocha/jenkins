@@ -1,6 +1,13 @@
 def buildApp(){
     echo "building the application.."
-    echo "building version ${NEW_VERSION}"
+    sh 'docker build -t dockerrochatest/app-test:latest .'
+}
+
+def loginPushApp(){
+    echo "loging into docker hub...."
+    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+    echo "pushing image to docker hub..."
+    sh 'docker push dockerrochatest/app-test:latest'
 }
 
 def testApp(){
