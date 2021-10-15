@@ -2,6 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 
 count = 0
+count2 = 0
 
 @app.route('/')
 def index():
