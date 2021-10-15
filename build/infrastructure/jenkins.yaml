@@ -78,7 +78,7 @@ spec:
   selector:
     matchLabels:
       app: jenkins
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
