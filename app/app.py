@@ -11,7 +11,7 @@ def index():
 	return 'Hello from application' + str(count)
 
 @app.route('/hello')
-def index():
+def count():
 	global count2
 	count2 += 1
 	
