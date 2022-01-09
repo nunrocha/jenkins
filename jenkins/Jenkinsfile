@@ -6,6 +6,7 @@ pipeline{
 
     environment{
         NEW_VERSION = '1.3.0'
+        DOCKERHUB_CREDENTIALS=credentials('docker-rocha-hub')
     }
 
     parameters{
@@ -18,7 +19,7 @@ pipeline{
         stage("init"){
             steps{
                 script{
-                    gv = load "scripts.groovy"
+                    gv = load "jenkins/scripts.groovy"
                 }    
             }
         }
@@ -28,6 +29,14 @@ pipeline{
                 script{
                     gv.buildApp()
                 }
+            }
+        }
+
+        stage("Login/PushImage"){
+            steps{
+                    script{
+                        gv.loginPushApp()
+                    }
             }
         }
 
